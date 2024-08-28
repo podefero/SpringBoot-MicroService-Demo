@@ -12,7 +12,7 @@
 	<artifactId>order-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>order-system</name>
-	<description>Demo project for SpringBoot, Kafka, AWS, Kubernetis, and MongoDB</description>
+	<description>Demo project for SpringBoot, Kafka, AWS, Kubernetes, and MongoDB</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -33,6 +33,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
@@ -59,6 +67,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.6.0</version>
 		</dependency>
 	</dependencies>
 
