@@ -42,6 +42,7 @@ public class OrderService {
             order.setName(orderModel.getName());
             order.setQuantity(orderModel.getQuantity());
             order.setCategory(orderModel.getCategory());
+            order.setOrderStatus(orderModel.getOrderStatus());
             return orderRepository.save(order);
         });
     }
