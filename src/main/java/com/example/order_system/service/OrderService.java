@@ -1,7 +1,9 @@
 package com.example.order_system.service;
 
+import com.example.order_system.config.kafka.Topics;
 import com.example.order_system.model.OrderModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import com.example.order_system.repository.OrderRepository;
 
@@ -11,10 +13,12 @@ import java.util.Optional;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final KafkaTemplate<String, OrderModel> kafkaTemplate;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, KafkaTemplate<String, OrderModel> kafkaTemplate) {
         this.orderRepository = orderRepository;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     public List<OrderModel> getAllOrders() {
@@ -34,6 +38,9 @@ public class OrderService {
     }
 
     public OrderModel createOrder(OrderModel orderModel) {
+        //Produce kafka message
+        kafkaTemplate.send(Topics.ORDER_CREATED, orderModel);
+        //save to database
         return orderRepository.save(orderModel);
     }
 

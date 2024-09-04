@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 public class OrderModel {
     @Id
-    @Schema(hidden = true)
+    @Schema(hidden = true) //hides this in swagger
     private String id;
 
 
