@@ -18,6 +18,5 @@ public class OrderModel {
     private String name;
     private int quantity;
     private String category;
-    @Schema(hidden = true)
     private OrderStatus orderStatus;
 }

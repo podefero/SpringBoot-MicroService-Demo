@@ -1,11 +1,11 @@
 # Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-alpine
+FROM amazoncorretto:17
 
 # Set the working directory inside the container
 WORKDIR /order-system
 
-# Copy the .jar file from the 'out' folder to the container
-COPY out/*.jar order-system.jar
+# Copy the .jar file from the target folder to the container
+COPY target/*.jar order-system.jar
 
 # Expose the port the application will run on
 EXPOSE 8080

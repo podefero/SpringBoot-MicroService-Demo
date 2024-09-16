@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class NotificationService {
 
     @KafkaListener(topics = Topics.ORDER_CREATED)
-    public void orderCreatedNotification(Object object) {
+    public void orderCreatedNotification(String object) {
         System.out.println("Notification: " + object);
     }
 }
