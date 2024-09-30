@@ -13,10 +13,10 @@ import java.util.Optional;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, OrderModel> kafkaTemplate;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, KafkaTemplate<String, String> kafkaTemplate) {
+    public OrderService(OrderRepository orderRepository, KafkaTemplate<String, OrderModel> kafkaTemplate) {
         this.orderRepository = orderRepository;
         this.kafkaTemplate = kafkaTemplate;
     }
@@ -39,7 +39,7 @@ public class OrderService {
 
     public OrderModel createOrder(OrderModel orderModel) {
         //Produce kafka message
-        kafkaTemplate.send(Topics.ORDER_CREATED, orderModel.toString());
+        kafkaTemplate.send(Topics.ORDER_CREATED, orderModel);
         //save to database
         return orderRepository.save(orderModel);
     }

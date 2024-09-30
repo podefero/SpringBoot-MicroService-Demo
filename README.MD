@@ -1,6 +1,7 @@
 Order Processing System Demo using Java Spring Boot, Docker, Kubernetes, Kafka, AWS, Jenkins, and MongoDB
 
-This project demonstrates a real-time order processing system built with microservices architecture. It utilizes Java Spring Boot for building microservices, Docker for containerization, Kubernetes for orchestration, Kafka for messaging, AWS Lambda for serverless functions, Jenkins for CI/CD, and MongoDB for data persistence.
+This project demonstrates a real-time order processing system built with microservices architecture. It utilizes Java Spring Boot for building microservices, Docker for containerization, 
+Kubernetes for orchestration, Kafka for messaging, AWS Lambda for serverless functions, Jenkins for CI/CD, and MongoDB for data persistence.
 
 # Configurations
 This will go over configurations for each service, what files they use and what we need in those files
