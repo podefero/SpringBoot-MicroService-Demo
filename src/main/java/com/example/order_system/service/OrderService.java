@@ -38,10 +38,12 @@ public class OrderService {
     }
 
     public OrderModel createOrder(OrderModel orderModel) {
-        //Produce kafka message
-        kafkaTemplate.send(Topics.ORDER_CREATED, orderModel);
         //save to database
-        return orderRepository.save(orderModel);
+        OrderModel savedOrder = orderRepository.save(orderModel);
+        //Produce kafka message
+
+        kafkaTemplate.send(Topics.ORDER_CREATED, savedOrder);
+        return savedOrder;
     }
 
     public Optional<OrderModel> updateOrder(String id, OrderModel orderModel) {
