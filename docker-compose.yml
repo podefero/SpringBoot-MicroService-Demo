@@ -46,3 +46,13 @@ services:
       - mongo
     ports:
       - "8080:8080"
+
+  nextjs-app:
+    build:
+      context: ./next-js-client/next-js-client
+    container_name: nextjs-app
+    depends_on:
+      - broker
+      - mongo
+    ports:
+      - "3000:3000"
